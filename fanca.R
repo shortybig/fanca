@@ -2436,3 +2436,7 @@ tertiary_exon_test <- stringr::str_replace_all(secondary_exon_test, exon25, "   
 c_3788_3790del_exon <- "CTATTGGTTTTCCTTTTCTTCTTCTCCTTGATGGGCCTGCTGTCGTCACATCTGACCTCAAAT"
 
 quaternary_exon_test <- stringr::str_replace_all(tertiary_exon_test, c_3788_3790del_exon, "     EXONX     ")
+
+intron_preceding_exon23 <- "AACTAGTTTCTTCCTTCGCAG"
+
+potential_tattoo_sequence <- paste0(intron_preceding_exon23, " EXON23 ", substr(exon23, 1, 53))
