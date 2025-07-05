@@ -2437,6 +2437,24 @@ c_3788_3790del_exon <- "CTATTGGTTTTCCTTTTCTTCTTCTCCTTGATGGGCCTGCTGTCGTCACATCTGAC
 
 quaternary_exon_test <- stringr::str_replace_all(tertiary_exon_test, c_3788_3790del_exon, "     EXONX     ")
 
-intron_preceding_exon23 <- "AACTAGTTTCTTCCTTCGCAG"
+intron_preceding_exon23 <- stringr::str_extract(fanca_gene_clean, paste0(".{", 23, "}", exon23))
 
-potential_tattoo_sequence <- paste0(intron_preceding_exon23, " EXON23 ", substr(exon23, 1, 53))
+initial_tattoo_sequence <- substr(intron_preceding_exon23, 1, 75)
+
+char_vector <- stringr::str_split(initial_tattoo_sequence, "")[[1]]
+
+c_2015_mutation_int <- c(char_vector[1:22], "T", char_vector[24:length(char_vector)])
+
+# Remove every 10th character
+c_2015_mutation_final <- c_2015_mutation_int[-seq(10, length(c_2015_mutation_int), by = 10)]
+
+# Combine the characters back into a string
+final_tattoo_sequence <- stringr::str_c(c_2015_mutation_final, collapse = "")
+
+c_count <- length(stringr::str_extract_all(final_tattoo_sequence, "C")[[1]])
+g_count <- length(stringr::str_extract_all(final_tattoo_sequence, "G")[[1]])
+
+a_count <- length(stringr::str_extract_all(final_tattoo_sequence, "A")[[1]])
+t_count <- length(stringr::str_extract_all(final_tattoo_sequence, "T")[[1]])
+
+print(final_tattoo_sequence)
