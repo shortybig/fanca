@@ -2464,7 +2464,7 @@ patterns_and_replacements <- list(
   "A" = "b",
   "T" = "R",
   "C" = "r",
-  "G" = "B"
+  "G" = "E"
 )
 
 # Use str_replace_all to apply multiple replacements
@@ -2487,7 +2487,7 @@ print(google_sequence_final)
 complimentary_nts <- list(
   "A" = "R",
   "T" = "b",
-  "C" = "B",
+  "C" = "E",
   "G" = "r"
 )
 
