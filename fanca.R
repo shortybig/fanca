@@ -2479,6 +2479,6 @@ print(artist_sequence)
 
 google_sequence_int <- stringr::str_split(artist_sequence, "")[[1]]
 
-google_sequence_final <- stringr::str_c(google_sequence_int, collapse = "  ")
+google_sequence_final <- stringr::str_c(google_sequence_int, collapse = "   ")
 
 print(google_sequence_final)
