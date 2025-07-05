@@ -2458,3 +2458,27 @@ a_count <- length(stringr::str_extract_all(final_tattoo_sequence, "A")[[1]])
 t_count <- length(stringr::str_extract_all(final_tattoo_sequence, "T")[[1]])
 
 print(final_tattoo_sequence)
+
+# Create a named list where each pattern has a corresponding replacement
+patterns_and_replacements <- list(
+  "A" = "b",
+  "T" = "R",
+  "C" = "r",
+  "G" = "B"
+)
+
+# Use str_replace_all to apply multiple replacements
+artist_sequence <- final_tattoo_sequence
+
+for (pattern in names(patterns_and_replacements)) {
+  artist_sequence <- stringr::str_replace_all(artist_sequence, pattern, patterns_and_replacements[[pattern]])
+}
+
+# Print the modified string
+print(artist_sequence)
+
+google_sequence_int <- stringr::str_split(artist_sequence, "")[[1]]
+
+google_sequence_final <- stringr::str_c(google_sequence_int, collapse = " ")
+
+print(google_sequence_final)
