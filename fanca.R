@@ -2482,3 +2482,26 @@ google_sequence_int <- stringr::str_split(artist_sequence, "")[[1]]
 google_sequence_final <- stringr::str_c(google_sequence_int, collapse = "   ")
 
 print(google_sequence_final)
+
+# complimentary strand
+complimentary_nts <- list(
+  "A" = "R",
+  "T" = "b",
+  "C" = "B",
+  "G" = "r"
+)
+
+# Use str_replace_all to apply multiple replacements
+artist_sequence_complimentary <- final_tattoo_sequence
+
+for (pattern in names(complimentary_nts)) {
+  artist_sequence_complimentary <- stringr::str_replace_all(artist_sequence_complimentary, pattern, complimentary_nts[[pattern]])
+}
+
+print(artist_sequence_complimentary)
+
+google_sequence_int_complimentary <- stringr::str_split(artist_sequence_complimentary, "")[[1]]
+
+google_sequence_final_complimentary <- stringr::str_c(google_sequence_int_complimentary, collapse = "   ")
+
+print(google_sequence_final_complimentary)
